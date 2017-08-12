@@ -20,7 +20,7 @@
          #datetime  {
             color: #ffffff;
             font-family: "Serif", "Arial";
-            font-size: 10px;
+            font-size: 16px;
          }
       </style>
    </head>
@@ -43,7 +43,7 @@
             if (minute < 10)  {minute = "0"+minute;}
             if (second < 10)  {second = "0"+second;}
 
-            var datetime = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
+            var datetime = year+"/"+month+"/"+day+" "+hour+":"+minute+":"+second;
             document.getElementById("datetime").innerHTML = datetime + ' (GMT+8)';
          }
 
