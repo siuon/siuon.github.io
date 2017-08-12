@@ -1,0 +1,54 @@
+<!-- ----------------------------------------------------- -->
+<!--  OBS Datetime Overlay                                 -->
+<!-- ----------------------------------------------------- -->
+<!--  Platform: Javascript + OBS                           -->
+<!--  Copyright 2017 Pacess Studio.  All rights reserved.  -->
+<!-- ----------------------------------------------------- -->
+<html>
+   <head>
+      <title>OBS Datetime Overlay</title>
+
+      <style>
+         html  {
+            margin: 0px;
+            background-color: #000000;
+         }
+         body  {
+            margin: 2px 0px 0px 10px;
+         }
+
+         #datetime  {
+            color: #ffffff;
+            font-family: "Serif", "Arial";
+            font-size: 10px;
+         }
+      </style>
+   </head>
+   <body>
+      <div id="datetime"></div>
+
+      <script>
+         function updateTimestamp()  {
+            var currentDate = new Date(); 
+            var year = currentDate.getFullYear();
+            var month = currentDate.getMonth()+1;
+            var day = currentDate.getDate();
+            var hour = currentDate.getHours()
+            var minute = currentDate.getMinutes()
+            var second = currentDate.getSeconds()
+
+            if (month < 10)  {month = "0"+month;}
+            if (day < 10)  {day = "0"+day;}
+            if (hour < 10)  {hour = "0"+hour;}
+            if (minute < 10)  {minute = "0"+minute;}
+            if (second < 10)  {second = "0"+second;}
+
+            var datetime = year+"-"+month+"-"+day+" "+hour+":"+minute+":"+second;
+            document.getElementById("datetime").innerHTML = datetime + ' (GMT+8)';
+         }
+
+         updateTimestamp();
+         setInterval(updateTimestamp, 1000);
+      </script>
+   </body>
+</html>
